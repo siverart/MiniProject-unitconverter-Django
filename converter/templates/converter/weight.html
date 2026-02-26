@@ -1,0 +1,32 @@
+{% extends 'converter/components/base.html' %}
+
+{% block content %}
+<form action="{% url 'weight-converter' %}"method="POST">
+    {% csrf_token %}
+    {{ form.non_field_errors}}
+    <div style="margin-bottom: 16px;"> 
+        {{ form.value.label_tag}}
+        {{ form.value}}
+        {{ form.value.error}}
+    </div>
+    <div style="margin-bottom: 16px;"> 
+        {{ form.unit_from.label_tag}}
+        {{ form.unit_from}}
+        {{ form.unit_from.error}}
+    </div>
+    <div style="margin-bottom: 16px;"> 
+        {{ form.unit_to.label_tag}}
+        {{ form.unit_to}}
+        {{ form.unit_to.error}}
+    </div>
+    <div>
+        <button type="submit">Submit value</button>
+    </div>
+</form>
+
+{% if result %}
+    <h3>ผลลัพธ์: {{ result }} {{ unit }}</h3>
+{% else %}
+    <p>ยังไม่มีการคำนวณ หรือผลลัพธ์เป็น 0</p>
+{% endif %}
+{% endblock %}
