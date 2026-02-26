@@ -1,0 +1,16 @@
+<style>
+        .highlight { background-color: #d4e5fc; font-weight: bold; padding: 5px; }
+</style>
+<header>
+        <div>
+                <h1>Unit Converter</h1>
+        </div>
+</header>
+<header>
+        <h4>
+                <a href="{% url 'length-converter' %}" class="{% if active_menu == 'length' %}highlight{% endif %}">Length</a>
+                <a href="{% url 'weight-converter' %}" class="{% if active_menu == 'weight' %}highlight{% endif %}">Weigth</a>
+                <a href="{% url 'temperature-converter' %}" class="{% if active_menu == 'temperature' %}highlight{% endif %}">Temperature</a>
+        </h4>
+                   
+</header>
